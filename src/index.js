@@ -14,11 +14,6 @@ const resolvers = {
     info: () => 'this is a string',
     feed: () => links,
   },
-  Link: {
-    id: (parent) => parent.id,
-    description: (parent) => parent.description,
-    url: (parent) => parent.url,
-  },
 }
 
 const server = new ApolloServer({
