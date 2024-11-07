@@ -14,6 +14,18 @@ const resolvers = {
     info: () => 'this is a string',
     feed: () => links,
   },
+  Mutation: {
+    post: (parent, args) => {
+      const id = links.length;
+      link = {
+        id: `link-${id}`,
+        description: args.description,
+        url: args.url,
+      };
+      links.push(link);
+      return link;
+    }
+  }
 }
 
 const server = new ApolloServer({
