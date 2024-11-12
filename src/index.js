@@ -52,3 +52,71 @@ server
   .then(({url}) =>
     console.log(`Server is running on ${url}`)
   );
+
+/*
+
+query{
+  feed {
+    id
+    url
+    description
+  }
+}
+
+// FILTER
+
+query{
+  feed (filter_id: "link-1") {
+    id
+    url
+    description
+  }
+}
+
+// ALIAS
+
+query{
+  link1: feed (filter_id: "link-0") {
+    id
+    url
+    description
+  }
+  link2:feed (filter_id: "link-1") {
+    id
+    url
+    description
+  }
+}
+
+// FRAGMENT
+
+query{
+  link1: feed (filter_id: "link-0") {
+    ...linkFields
+  }
+  link2:feed (filter_id: "link-1") {
+    ...linkFields
+  }
+}
+
+fragment linkFields on Link {
+  id
+  url
+  description
+}
+
+// FRAGMENT VARS
+
+query ($id: String = "link-0"){
+  ...link
+}
+
+fragment link on Query {
+  feed (filter_id: $id) {
+    id
+    url
+    description
+  }
+}
+
+*/
